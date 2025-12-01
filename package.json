@@ -1,0 +1,16 @@
+{
+  "name": "bflogin",
+  "version": "1.0.0",
+  "description": "BF QRCode Login Helper",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js"
+  },
+  "keywords": ["bf", "login", "qrcode"],
+  "author": "darkk6",
+  "license": "MIT",
+  "dependencies": {
+    "node-fetch": "^2.7.0"
+  }
+}

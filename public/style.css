@@ -1,0 +1,177 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Microsoft JhengHei', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.instructions {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    border-left: 4px solid #667eea;
+}
+
+.instructions ol {
+    margin-left: 20px;
+}
+
+.instructions li {
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+.instructions a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.instructions a:hover {
+    text-decoration: underline;
+}
+
+.input-section {
+    margin-bottom: 25px;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+#urlInput {
+    flex: 1;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+#urlInput:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.btn-clear {
+    padding: 12px 20px;
+    background: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+.btn-clear:hover {
+    background: #5a6268;
+}
+
+.btn-generate {
+    width: 100%;
+    padding: 14px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn-generate:hover {
+    background: #5568d3;
+}
+
+.output-section {
+    min-height: 60px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 2px dashed #e0e0e0;
+}
+
+.output-section.empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+}
+
+.error-message {
+    color: #dc3545;
+    font-weight: bold;
+    text-align: center;
+    padding: 15px;
+}
+
+.success-message {
+    text-align: center;
+}
+
+.success-message p {
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #28a745;
+    font-weight: bold;
+}
+
+.link-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.platform-link {
+    display: inline-block;
+    padding: 15px 40px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.platform-link.ios {
+    background: #007aff;
+    color: white;
+}
+
+.platform-link.ios:hover {
+    background: #0051d5;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 122, 255, 0.3);
+}
+
+.platform-link.android {
+    background: #3ddc84;
+    color: white;
+}
+
+.platform-link.android:hover {
+    background: #2bc46d;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(61, 220, 132, 0.3);
+}
