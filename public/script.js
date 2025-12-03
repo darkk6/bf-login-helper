@@ -12,22 +12,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 生成按鈕事件
     generateBtn.addEventListener('click', async function() {
-        const url = urlInput.value.trim();
+        const input = urlInput.value.trim();
         
         // 清空輸出區
         output.innerHTML = '';
         
-        // 步驟 1: 檢查網址格式
-        if (!url.startsWith('https://tw.newlogin.beanfun.com/loginform.aspx?')) {
-            showError('網址格式不符');
+        if (!input) {
+            showError('請輸入網址或 skey');
             return;
         }
-
-        // 步驟 2: 取得 skey 值
-        const skey = extractSkey(url);
-        if (!skey) {
-            showError('找不到 skey');
-            return;
+        
+        // 步驟 1 & 2: 判斷是網址還是 skey
+        let skey;
+        if (isUrl(input)) {
+            // 是網址，嘗試提取 skey
+            skey = extractSkey(input);
+            if (!skey) {
+                showError('網址中找不到 skey');
+                return;
+            }
+        } else {
+            // 不是網址，直接視為 skey
+            skey = input;
         }
 
         // 步驟 3: 發送 GET request 到我們的後端 API
@@ -43,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // 檢查是否有 strEncryptBCDOData 欄位且不為空
             if (!data.strEncryptBCDOData || data.strEncryptBCDOData.trim() === '') {
-                showError('無法取得 QRCode 資訊');
+                showError('無法取得登入資訊，可能已經過期或錯誤的網址/skey');
                 return;
             }
 
@@ -52,9 +58,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
         } catch (error) {
             console.error('Error:', error);
-            showError('無法取得 QRCode 資訊');
+            showError('無法取得登入資訊');
         }
     });
+
+    // 判斷是否為有效的 URL
+    function isUrl(input) {
+        // 需要同時滿足兩個條件：
+        // 1. 以 http:// 或 https:// 開頭
+        // 2. 包含 tw.newlogin.beanfun.com
+        const hasProtocol = input.startsWith('http://') || input.startsWith('https://');
+        const hasValidDomain = input.includes('tw.newlogin.beanfun.com');
+        return hasProtocol && hasValidDomain;
+    }
 
     // 從網址中提取 skey 參數
     function extractSkey(url) {
@@ -78,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         output.innerHTML = `
             <div class="success-message">
-                <p>✓ 成功取得 QRCode 資訊</p>
+                <p>✓ 成功取得登入資訊</p>
                 <div class="link-buttons">
                     <a href="${iosLink}" target="_blank" class="platform-link ios">iOS</a>
                     <a href="${androidLink}" target="_blank" class="platform-link android">Android</a>

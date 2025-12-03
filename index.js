@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const fetch = require('node-fetch');
 
-const PORT = process.env.PORT || 80;
+const PORT = process.env.PORT || 8898;
 
 // MIME types
 const mimeTypes = {

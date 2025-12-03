@@ -47,6 +47,19 @@ body {
     text-decoration: underline;
 }
 
+.footer {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #e9ecef;
+    text-align: center;
+    color: #999;
+    font-size: 12px;
+}
+
+.footer p {
+    margin: 0;
+}
+
 .input-section {
     margin-bottom: 25px;
 }
@@ -138,8 +151,9 @@ body {
 
 .link-buttons {
     display: flex;
+    flex-direction: row;
     justify-content: center;
-    gap: 30px;
+    gap: 20px;
     flex-wrap: wrap;
 }
 
@@ -155,14 +169,14 @@ body {
 }
 
 .platform-link.ios {
-    background: #007aff;
+    background: #555555;
     color: white;
 }
 
 .platform-link.ios:hover {
-    background: #0051d5;
+    background: #3d3d3d;
     transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0, 122, 255, 0.3);
+    box-shadow: 0 6px 12px rgba(85, 85, 85, 0.3);
 }
 
 .platform-link.android {
